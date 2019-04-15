@@ -15,7 +15,7 @@ Not anymore, now I'm a RealDeveloper<sup>tm</sup> working for a [real software h
 
 But I've also had plenty of humbling moments since then, and met developers much MUCH stronger than I, whom I aspire too, and I have also made my fair share of mistakes. I've learned that being a **good developer** is not about showing off how smart you are, or chasing new shiny things. It's about practice, discipline, not being a jackass, and helping other people. I've earned a new level of professional pride.
 
-I am also much more cynical than I was back then... allow me to indulge in some stream of concioussness reminiscing.
+I am also much more cynical than I was back then... allow me to indulge in some stream of consciousness reminiscing.
 
 Tech has changed, front-end development has matured greatly from my days of yore, instead of libraries and frameworks like KnockoutJS and Ember, we have libraries and frameworks that do the same thing as them; like React and Angular.
 
