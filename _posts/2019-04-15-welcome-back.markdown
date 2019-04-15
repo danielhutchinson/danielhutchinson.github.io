@@ -25,7 +25,7 @@ ES2015 is supported in browsers, like, really supported. But we all still use to
 
 JavaScript isn't a joke anymore, now it's a big deal, in fact its probably the most popular language, or at least it feels that way. You can use it to write server side applications without people laughing at you. You can use it to build desktop applications. You can even use it to build native mobile apps for Android and iOS with one codebase. There are even some insane developers out there who want to write CSS in JavaScript.
 
-Bower is gone, (remember Bower?) instead we use NPM for our front-end dependencies, or yarn. Build tools like Gulp, Grunt Brocolli... nobody talks about them anymore; Webpack is the guy now.
+Bower is gone, (remember Bower?) instead we use NPM for our front-end dependencies, or yarn. Build tools like Gulp, Grunt, Brocolli... nobody talks about them anymore; Webpack is the guy now.
 
 There are these things called PWA's. Web Assembly is allowing people to REALLY show off. Blockchain exists! Things are moving closer and closer to the ideal of desktop (or native, as we're calling it now) like web applications.
 
