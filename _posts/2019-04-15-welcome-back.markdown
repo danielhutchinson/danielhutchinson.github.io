@@ -17,7 +17,7 @@ But I've also had plenty of humbling moments since then, and met developers much
 
 I am also much more cynical than I was back then... allow me to indulge in some stream of consciousness reminiscing.
 
-Tech has changed, front-end development has matured greatly from my days of yore, instead of libraries and frameworks like KnockoutJS and Ember, we have libraries and frameworks that do the same thing as them; like React and Angular.
+Tech has changed, front-end development has matured greatly from my days of yore, instead of libraries and frameworks like KnockoutJS and Ember, we have libraries and frameworks that do the same thing as them; like React and Angular. (They do the same thing, but faster.)
 
 ES2015 is supported in browsers, like, really supported. But we all still use tools like babel anyway, because ES2015 is for old men like me.
 
