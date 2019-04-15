@@ -1,6 +1,7 @@
 ---
 ---
-@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
+
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700,Fira+Mono");
 
 $easing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 $dark-grey: #282c34;
@@ -13,8 +14,8 @@ $tertiary-color: #c1895a;
     Scaffolding
 */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -49,16 +50,30 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.75em;
+  margin: 1em 0 0.4em 0;
 }
 
 p {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
+  line-height: 1.8em;
 }
 
 .page-content {
-    width: 75%;
-    margin: 0 auto;
+  width: 75%;
+  margin: 0 auto;
+}
+
+pre {
+  box-sizing: border-box;
+  background: darken($dark-grey, 5%);
+  padding: 2em;
+  margin: 2em 0;
+  border-radius: 1em;
+}
+
+code {
+  font-family: "Fira Mono", Consolas, sans-serif;
 }
 
 /*
@@ -66,17 +81,17 @@ p {
 */
 
 .page-header {
-    padding: 2em;
-    margin-bottom: 3em;
+  padding: 2em;
+  margin-bottom: 3em;
 
-    h1 {
-        color: lighten($dark-grey, 10%);
-        font-size: 1.5em;
+  h1 {
+    color: lighten($dark-grey, 10%);
+    font-size: 1.5em;
 
-        span {
-            color: $secondary-color;
-        }
+    span {
+      color: $secondary-color;
     }
+  }
 }
 
 /*
@@ -84,30 +99,39 @@ p {
 */
 
 .post-list {
-    list-style: none;
-    margin: 0;
-    border-left: 1px solid lighten($dark-grey, 20%);
+  list-style: none;
+  margin: 0;
+  border-left: 1px solid lighten($dark-grey, 10%);
 
-    li {
-        margin-left: -1px;
-        padding: 1.2em;
-        border-left: 1px solid lighten($dark-grey, 30%);
-        margin-top: 5em;
+  li {
+    margin-left: -1px;
+    padding: 1.2em 1.2em .5em 1.2em;
+    border-left: 1px solid lighten($dark-grey, 30%);
+    margin-top: 3em;
 
-        .post-date {
-            font-size: .8em;
-        }
+    h2 {
+        padding-bottom: .5em;
+        margin: 0;
     }
+
+    .post-date {
+      font-size: 0.8em;
+    }
+  }
 }
 
+.post-meta {
+    margin-top: -2em;
+    margin-bottom: 3em;
+}
 
 /*
     Footer
 */
 
 .page-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 2em;
-    margin-top: 3em;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+  margin-top: 3em;
 }
