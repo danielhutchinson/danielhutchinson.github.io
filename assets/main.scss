@@ -67,13 +67,17 @@ p {
 pre {
   box-sizing: border-box;
   background: darken($dark-grey, 5%);
-  padding: 2em;
+  padding: 1.5em;
   margin: 2em 0;
   border-radius: 1em;
 }
 
 code {
   font-family: "Fira Mono", Consolas, sans-serif;
+}
+
+.hljs {
+  background: transparent !important;
 }
 
 /*

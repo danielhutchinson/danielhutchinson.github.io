@@ -10,13 +10,13 @@ Luckily, in Ember version 1.11.0 we have access to the {{component}} helper whic
 
 Say for example I have three components ```dh-panel-red```, ```dh-panel-green```, and ```dh-panel-blue```. Each panel follows a simple format as follows:
 
-{% highlight javascript %}
+```
 export default Ember.Component.extend({
   classNames: ['dh-panel'],
   classNameBindings: ['panelColor'],
   panelColor: 'red'
 });
-{% endhighlight %}
+```
 
 Each component has the same code as this, the only thing that changes is the panelColor property. Which is used to set the background colour of the panel in css.
 
@@ -25,7 +25,8 @@ Note: In practice it'd be best to create a mixin for any repeated code. I haven'
 Now on the application template I'll add a drop down select menu that allows the user to pick and choose which component they want. This template is powered by data located on the application controller.
 
 ### Application Template
-{% highlight javascript %}
+{%raw%}
+```
   <label>
     Select a component to load:
     {{view "select"
@@ -34,10 +35,11 @@ Now on the application template I'll add a drop down select menu that allows the
            optionLabelPath="content.title"
            value=selectedComponent}}
   </label>
-{% endhighlight %}
+```
+{%endraw%}
 
 ### Application Controller
-{% highlight javascript %}
+```
 export default Ember.Controller.extend({
   components: [
     { title: "Red Panel", "name": "dh-panel-red" },
@@ -45,19 +47,19 @@ export default Ember.Controller.extend({
     { title: "Green Panel", "name": "dh-panel-green" }
   ]
 });
-{% endhighlight %}
+```
 
 The magic happens in the new component helper, this helper expects the name of a component to be passed to it, so, for example, if we wanted to load our dh-panel-red component we could do it this way:
 
-{% highlight javascript %}
+```{%raw%}
 {{component "dh-panel-red title="Red Panel"}}
-{% endhighlight %}
+```{%endraw%}
 
 Though hard coding a value like this is a but redundant, we could just use the normal method of rendering a single component on the page, the value of this helper comes from the ability to set the component name to a dynamically bound value, in our example it would look like this:
 
-{% highlight javascript %}
+```{%raw%}
 {{component selectedComponent.name title=selectedComponent.title}}
-{% endhighlight %}
+```{%endraw%}
 
 When the value of the selectedComponent changes, so too does the component itself. This allows us to swap between different components at run time.
 

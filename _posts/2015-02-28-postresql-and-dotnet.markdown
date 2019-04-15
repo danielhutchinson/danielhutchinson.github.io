@@ -21,7 +21,7 @@ I won't go into too much detail on the inner workings of postgres here (document
 
 I'm going to create a simple one table database in Postgres that we can write queries against in the next couple of sections. If you're already used to writing SQL none of this will be particularly new to you.
 
-{% highlight postgres %}
+```
 CREATE DATABASE PostgresDotNet;
 
 -- Make sure you connect to this database after creating it!
@@ -41,16 +41,16 @@ VALUES
   ('Hulk', 'Bruce Banner'),
   ('Spider Man', 'Peter Parker'),
   ('Thor', 'Thor Odinson');
-{% endhighlight %}
+```
 
 First we're creating a database called PostgresDotNet, then after switching to this database we are creating a table on it named Avengers, with an Id field, a Name field, and an AlterEgo field. Then we're inserting a bunch of values into the table. Nothing too special, probably nothing here that you havent seen before in other flavours of SQL.
 
 Just to make sure everything has worked correctly let's get all of the data we just entered back.
 
-{% highlight postgres %}
+```
 SELECT *
 FROM Avengers;
-{% endhighlight %}
+```
 
 You should see all of the data we just entered, only with Id's that have been automagically generated for us because we gave the Id field a data-type of serial.
 
@@ -72,13 +72,13 @@ This will add all of the necessary references and DLLs into your project.
 ## Setting up the web.config/app.config file
 Next we need to tell the project about our database, again this is very similar to how we do it when working with SqlServer.
 
-{% highlight postgres %}
+```
 <connectionStrings>
   <add name="PostgresDotNet"
        connectionString="server=localhost; user={your username}; password={your password}; database=postgresdotnet"
        providerName="Npgsql" />
 </connectionStrings>
-{% endhighlight %}
+```
 
 Not much new here right? The server will be localhost, this is where postgres is listening for requests. You'll also need to specify a username and password for the connection to use, and you'll also need to specify which database to connect to.
 
@@ -87,18 +87,18 @@ The main difference here is the providerName, you'll need to use Npgsql instead 
 ## Creating a DbConnection
 Okay over in our C# code we need to grab this ConnectionString using the ConfigurationManager, and store that in a variable.
 
-{% highlight postgres %}
+```
 string ConnectionString =
     ConfigurationManager.ConnectionStrings["PostgresDotNet"].ConnectionString;
-{% endhighlight %}
+```
 
 Next we need to create a SqlConnection, or in our case a PgsqlConnection, using the ConnectionString we have specified.
 
-{% highlight postgres %}
+```
 using(NpgsqlConnection conn = new NpgsqlConnection(ConnectionString)) {
   conn.Open();
 }
-{% endhighlight %}
+```
 
 Remember to open the connection! and also wrap the whole thing in a using statement so that the connection is properly closed and disposed of when were done with it.
 
@@ -107,7 +107,7 @@ Next we can write our SQL Statement and store that in a variable, and create a N
 
 After that we create a NpgsqlDataReader object by calling the ExecuteReader method on our command, and simply output the results of our reader to the console.
 
-{% highlight postgres %}
+```
 using(NpgsqlConnection conn = new NpgsqlConnection(ConnectionString)) {
   con.Open();
   const string sql = "SELECT Id, Name, AlterEgo FROM Avengers;";
@@ -118,7 +118,7 @@ using(NpgsqlConnection conn = new NpgsqlConnection(ConnectionString)) {
     Console.WriteLine(reader["name"]);
   }
 }
-{% endhighlight %}
+```
 
 All pretty much standard ADO.NET really, if you've used it to connect to SQL Server in the past you'll be right at home here.
 
@@ -127,7 +127,7 @@ Run your program to see a list of names from our database, did you notice how li
 Creating and Executing a Parametized SqlCommand
 Most of the time you're going to want to execute parametized queries, unsuprisingly you do this the same way as you would if you were connecting to a SQL Server. By using AddWithValue() on your NpgsqlCommand.
 
-{% highlight postgres %}
+```
 using(NpgsqlConnection conn = new NpgsqlConnection(ConnectionString)) {
   con.Open();
   const string sql = "SELECT Id, Name, AlterEgo FROM Avengers WHERE Id = @id;";
@@ -139,7 +139,7 @@ using(NpgsqlConnection conn = new NpgsqlConnection(ConnectionString)) {
     Console.WriteLine(reader["name"]);
   }
 }
-{% endhighlight %}
+```
 
 ## Using a Micro-ORM
 Using a Micro-ORM is my preferred method of working with databases in .NET, I find they abstract just enough nastiness away that I can still be productive, while also having all the control I wan't over my queries. Which a full-blown ORM like Entity Framework just doesn't give me.
@@ -165,7 +165,7 @@ Most of what you will be reading in the documentation also applies to PostgreSQL
 
 So if we wanted to grab all of the data from a table like before we simply do the following:
 
-{% highlight postgres %}
+```
 using(NpgsqlConnection con = new NpgsqlConnection(ConnectionString)) {
   con.Open();
   const string sql = "SELECT Id, Name, AlterEgo FROM Avengers;";
@@ -175,11 +175,11 @@ using(NpgsqlConnection con = new NpgsqlConnection(ConnectionString)) {
     Console.WriteLine(avenger.name);
   }
 }
-{% endhighlight %}
+```
 
 What if we have a type and want to map the results to it? Well in that case you execute .Query<T>() instead of .Query().
 
-{% highlight postgres %}
+```
 public class Avenger {
   public int Id { get; set; }
   public string Name { get; set; }
@@ -197,14 +197,14 @@ using(NpgsqlConnection con = new NgsqlConnection(ConnectionString)) {
     Console.WriteLine(avenger.Name);
   }
 }
-{% endhighlight %}
+```
 
 The query methods that we have been using return an IEnumerable<T>, which means you're free to perform LINQ operations on them, cast them to lists, anything you need. Hopefully you've also noticed that it's fast almost as fast as using raw ADO.NET, unlike other ORMs I can name.
 
 ## Creating and Executing a Parametized SqlCommand
 Executing Parametized SQL Commands is also pretty easy using dapper:
 
-{% highlight postgres %}
+```
 var ConnectionString = ConfigurationManager.ConnectionStrings["PostgresDotNet"].ConnectionString;
 
 using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
@@ -220,6 +220,6 @@ using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
       Console.WriteLine(avenger.Name);
   }
 }
-{% endhighlight %}
+```
 
 Well, there you have it. I'm very glad to see just how easy switching to Postgres from something like MSSQL really can be in .NET. There's almost no learning curve at all! (provided you're used to working with ADO.NET).

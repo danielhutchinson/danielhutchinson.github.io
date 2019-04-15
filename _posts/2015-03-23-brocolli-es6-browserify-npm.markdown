@@ -16,7 +16,7 @@ To do this we use the tools titled above (along with Babel as our ES6 transpiler
 ## Setting up
 You need the following tools, each can be installed through NPM.
 
-{% highlight javascript %}
+```
 > npm install -g broccoli-cli 
 > npm install --save-dev broccoli
 > npm install --save-dev broccoli-merge-trees
@@ -24,13 +24,13 @@ You need the following tools, each can be installed through NPM.
 > npm install --save-dev broccoli-babel-transpiler
 > npm install --save-dev broccoli-browserify
 > npm install --save-dev browserify
-{% endhighlight %}
+```
 
 Create a Brocfile.js at the root of your project, we'll put all of our JavaScript code directly into an App folder, for simplicity.
 
 The Brocfile.js looks like this
 
-{% highlight javascript %}
+```
 var browserify = require('broccoli-browserify');
 var copy = require('broccoli-static-compiler');
 var merge = require('broccoli-merge-trees');
@@ -52,7 +52,7 @@ js = browserify(js, {
 });
 
 module.exports = merge([html, js]);
-{% endhighlight %}
+```
 
 To talk through this very quickly (maybe I'll write a full post on broccoli at some point)
 
@@ -66,7 +66,7 @@ Then we're merging our branches together and exporting them.
 
 If we create a couple of JS files in the App folder like this:
 
-{% highlight javascript %}
+```
 //app/main.js
 import foo from './foo';
 
@@ -76,7 +76,7 @@ console.log(foo());
 export default function () {
   console.log('spiffy!');
 }
-{% endhighlight %}
+```
 
 Then run broccoli serve from the command line and navigate to http://localhost:4200 in our browser you should be everything working as intended. At this point broccoli will already be watching for file changes and rebuilding our project (very quickly). It also supports live reloading out of the box, which is nice.
 
