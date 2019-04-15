@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/main.css" | relative_url }}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     {%- feed_meta -%}
     {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
@@ -24,8 +25,15 @@
     </main>
 
     <footer class="page-footer">
-        Dan Hutchinson
-        <p class="feed-subscribe"><a href="{{ "/feed.xml" | relative_url }}">RSS</a></p>
+
+        <div class="social">
+            <a class="twitter" target="_blank" href="https://twitter.com/danwhutchinson"><i class="fab fa-twitter"></i></a>
+            <a class="github" target="_blank" href="https://github.com/danielhutchinson"><i class="fab fa-github"></i></a>
+            <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/danhutch/"><i class="fab fa-linkedin-in"></i></a>
+            <a class="devto" target="_blank" href="https://dev.to/danielhutchinson"><i class="fab fa-dev"></i></a>
+        </div>
+        <a class="rss" href="{{ "/feed.xml" | relative_url }}"><i class="fa fa-rss"></i> Subscribe</a>
+        <p><small>&copy; 2019 Dan Hutchinson</small></p>
     </footer>
 
     <script>
