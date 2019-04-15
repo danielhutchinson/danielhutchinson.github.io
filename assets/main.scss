@@ -1,0 +1,45 @@
+---
+---
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
+
+$easing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$dark-grey: #282c34;
+$white: #bbc5cb;
+$primary-color: #cd5c63;
+$secondary-color: #8ebf67;
+$tertiary-color: #c1895a;
+
+body,
+html {
+  font-family: "Comfortaa";
+  line-height: 1.75;
+  color: $white;
+  background: $dark-grey;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+a,
+.post-title {
+  color: $primary-color;
+}
+
+a {
+  text-decoration: none;
+  transition: color 350ms $easing;
+
+  &:hover {
+    color: lighten($tertiary-color, 10%);
+  }
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.2em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2em;
+}
