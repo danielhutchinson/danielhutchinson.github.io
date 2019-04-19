@@ -109,7 +109,7 @@ export default class RemoteControlButton {
 }
 ```
 
-We have created a `RemoteControlButton` class with a field called command, that not surprisingly holds any class that conforms to the `Command` interface. We have also added a `setCommand' method, that we can use to set commands!
+We have created a `RemoteControlButton` class with a field called command, that not surprisingly holds any class that conforms to the `Command` interface. We have also added a `setCommand` method, that we can use to set commands!
 
 The `onButtonPressed` method is used to call `execute` on whatever command the class has assigned. With this change, the `RemoteControlButton` no longer needs to know about the Television. We have successfully decoupled these constructs from one another.
 
