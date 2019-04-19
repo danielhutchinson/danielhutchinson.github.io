@@ -145,7 +145,7 @@ When the `volumeUpButton` has its `onButtonPressed` method called (from a GUI or
 Now let's create two more commands, and assign them to the `RemoteControl` client class.
 
 ```javascript
-export default class VolumeDownCommand implements {
+export default class VolumeDownCommand implements Command {
     private tv: Television;
 
     constructor(tv: Television) {
@@ -159,7 +159,7 @@ export default class VolumeDownCommand implements {
 ```
 
 ```javascript
-export default class PowerOffCommand implements {
+export default class PowerOffCommand implements Command {
     private tv: Television;
 
     constructor(tv: Television) {
