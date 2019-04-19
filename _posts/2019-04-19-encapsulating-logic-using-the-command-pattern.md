@@ -129,9 +129,7 @@ First, we will implement our previously created `VolumeUpCommand` into the clien
 export default class RemoteControl {
     public volumeUpButton: RemoteControlButton;
 
-    private tv: Television;
-
-    constructor(activeTelevision: Television) {
+    constructor(tv: Television) {
         this.tv = activeTelevision;
 
         this.volumeUpButton = new RemoteControlButton();
