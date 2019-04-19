@@ -58,7 +58,7 @@ We do this by introducing command objects into our design:
 
 - We create a new command for each piece of logic that our remote control needs to execute
 - We create an invoker, that has these commands set at run time
-- When a button is pressed our `RemoteControl` tells the invoker to invoke the command responding to that action
+- When a button is pressed our `RemoteControl` tells the invoker to invoke the command assigned to that action
 
 In this scenario, we have decoupled our `RemoteControl` object from our `Television` object.
 
