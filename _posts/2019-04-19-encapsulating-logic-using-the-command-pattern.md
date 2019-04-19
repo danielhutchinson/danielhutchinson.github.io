@@ -91,7 +91,7 @@ export default class VolumeUpCommand implements Command {
     }
 }
 ```
-So we have a class that implements our Command interface, when constructing this command we will be accepting an instance of the receiver, in this case, the Television class. When execute is invoked on our new command it will simply call `adjustVolumeUp` on the tv object.
+So we have a class that implements our `Command` interface, when constructing this command we will be accepting an instance of the receiver, in this case, the Television class. When execute is invoked on our new command it will simply call `adjustVolumeUp` on the tv object.
 
 Alright, let’s create an invoker to call this command.
 
