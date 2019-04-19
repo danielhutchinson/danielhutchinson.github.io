@@ -50,7 +50,7 @@ It’d be great if we could extend the behaviour of the remote without having to
 At this point, we should take a step back and look at our design.
 
 ## Enter the Command Pattern
-The Command Pattern is a behavioural design pattern that allows us to decouple the requester of action, from the receiver.
+The Command Pattern is a behavioural design pattern that allows us to decouple the requester of an action, from the receiver.
 
 In our case, the requester (or client) would be the RemoteControl class and the receiver would be the Television class.
 
