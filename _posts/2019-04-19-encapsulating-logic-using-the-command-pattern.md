@@ -109,9 +109,9 @@ export default class RemoteControlButton {
 }
 ```
 
-We have created a `RemoteControlButton` class with a field called command, that not surprisingly holds any class that conforms to the `Command` interface. We have also added a setCommand method, that we can use to set commands!
+We have created a `RemoteControlButton` class with a field called command, that not surprisingly holds any class that conforms to the `Command` interface. We have also added a `setCommand method`, that we can use to set commands!
 
-The `onButtonPressed` command is still here, but all it has to do now is call execute on whatever command the class has assigned. With this change, the RemoteControlButton no longer needs to know about the Television. We have successfully decoupled these constructs from one another.
+The `onButtonPressed` command is still here, but all it has to do now is call execute on whatever command the class has assigned. With this change, the `RemoteControlButton` no longer needs to know about the Television. We have successfully decoupled these constructs from one another.
 
 ## What have we done!?
 We have encapsulated a request as an object. With these requests, we are able to create other objects that accept these requests as parameters.
@@ -121,7 +121,7 @@ This means that our concrete commands are totally reusable and sharable across a
 But there is still a bit missing for a full solution… we need to create the client.
 
 ## Assigning Commands
-We need a solution for creating and assigning multiple concrete commands. Let’s finally revisit our RemoteControl class, and modify it to create concrete implementations of the necessary commands and assign them to its buttons. For the sake of brevity, I will just add three buttons, in the real world, your solution would probably be a lot more sophisticated.
+We need a solution for creating and assigning multiple concrete commands. Let’s finally revisit our `RemoteControl` class, and modify it to create concrete implementations of the necessary commands and assign them to its buttons. For the sake of brevity, I will just add three buttons, in the real world, your solution would probably be a lot more sophisticated.
 
 First, we will implement our previously created `VolumeUpCommand` into the client.
 
