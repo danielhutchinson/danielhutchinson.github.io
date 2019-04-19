@@ -130,8 +130,6 @@ export default class RemoteControl {
     public volumeUpButton: RemoteControlButton;
 
     constructor(tv: Television) {
-        this.tv = activeTelevision;
-
         this.volumeUpButton = new RemoteControlButton();
         this.volumeUpButton.setCommand(new VolumeUpCommand(tv));
     }
