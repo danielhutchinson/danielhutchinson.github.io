@@ -74,7 +74,7 @@ export default interface Command {
 }
 ```
 
-A simple interface called Command, with a single method call on it that returns void is what we need to implement on each of our command objects.
+A simple interface called `Command`, with a single method call on it that returns void is what we need to implement on each of our command objects.
 
 Let’s go ahead and create a concrete command to turn the TV volume up.
 
